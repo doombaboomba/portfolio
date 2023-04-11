@@ -12,7 +12,7 @@
   --color-light-grey: #7c7979;
   --color-blue: #73aace;
   --color-yellow: #fff7d1;
-  --color-orange: #feb546;
+  --color-orange: #f88534;
   --color-black: #000000;
 
   /* Font size */
@@ -44,6 +44,7 @@ body {
 
 a {
   text-decoration: none;
+  color: var(--color-white);
 }
 
 ul {
@@ -95,7 +96,7 @@ p {
 #navbar {
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-pink);
+  background-color: var(--color-orange);
   align-items: center;
   color: #ffffff;
   padding: 16px;
