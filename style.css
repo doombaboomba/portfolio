@@ -96,6 +96,10 @@ p {
   font-weight: var(--weight-semi-bold);
 }
 
+.navbar__logo img {
+  vertical-align: middle;
+}
+
 .navbar__menu {
   display: flex;
 }
