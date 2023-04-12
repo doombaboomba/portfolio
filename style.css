@@ -167,6 +167,9 @@ p {
 .section {
   padding: 50px;
   text-align: center;
+  margin: auto;
+}
+.section__container {
   max-width: 1200px;
   margin: auto;
 }
@@ -234,4 +237,61 @@ p {
 
 .job__period {
   font-size: var(--font-micro);
+}
+
+/* Skill */
+#skills {
+  background-color: var(--color-blue);
+}
+
+.skillset {
+  display: flex;
+  background-color: var(--color-light-grey);
+  color: var(--color-light-white);
+  margin: 20px 0;
+}
+
+.skillset__title {
+  color: var(--color-white);
+  padding-bottom: 10px;
+}
+
+.skillset__left {
+  padding: 20px 40px;
+  flex-basis: 60%;
+  background-color: var(--color-dark-grey);
+}
+
+.skillset__right {
+  flex-basis: 40%;
+}
+
+.skill__description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skill {
+  margin-bottom: 32px;
+}
+
+.skill__bar {
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-grey);
+}
+
+.skill__value {
+  width: 70%;
+  height: 30%;
+  background-color: var(--color-yellow);
+}
+
+.tools {
+  background-color: var(--color-grey);
+}
+
+.tools,
+.etc {
+  padding: 20px;
 }
