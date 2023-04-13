@@ -12,8 +12,7 @@ document.addEventListener('scroll', () => {
   }
 });
 
-//스크롤
-// window.scrollTo(x-좌표, y-좌표)
+// 메뉴가 클릭되면 해당 페이지로 이동
 const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (e) => {
   const target = e.target;
@@ -21,9 +20,16 @@ navbarMenu.addEventListener('click', (e) => {
 
   if (link == null) return;
 
-  console.log(e.target.dataset.link);
-
-  const scrollTo = document.querySelector(link);
-  console.log(scrollTo);
-  scrollTo.scrollIntoView({ behavior: 'smooth' });
+  scrollIntoView(link);
 });
+
+// 홈화면에 있는 Contact Me 버튼
+const contactBtn = document.querySelector('.home__contact');
+contactBtn.addEventListener('click', () => {
+  scrollIntoView('#contact');
+});
+
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: 'smooth' });
+}
