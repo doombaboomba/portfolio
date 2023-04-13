@@ -11,3 +11,19 @@ document.addEventListener('scroll', () => {
     navbar.classList.remove('navbar--dark');
   }
 });
+
+//스크롤
+// window.scrollTo(x-좌표, y-좌표)
+const navbarMenu = document.querySelector('.navbar__menu');
+navbarMenu.addEventListener('click', (e) => {
+  const target = e.target;
+  const link = target.dataset.link;
+
+  if (link == null) return;
+
+  console.log(e.target.dataset.link);
+
+  const scrollTo = document.querySelector(link);
+  console.log(scrollTo);
+  scrollTo.scrollIntoView({ behavior: 'smooth' });
+});
