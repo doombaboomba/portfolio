@@ -29,6 +29,7 @@ contactBtn.addEventListener('click', () => {
   scrollIntoView('#contact');
 });
 
+// 매개변수 위치로 이동(스크롤)하는 함수
 function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: 'smooth' });
