@@ -33,3 +33,11 @@ function scrollIntoView(selector) {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({ behavior: 'smooth' });
 }
+
+// 스크롤 시 홈화면 메인 프로필, 글씨 투명처리
+const home = document.querySelector('#homeElements');
+const homeHeight = home.getBoundingClientRect().height;
+
+document.addEventListener('scroll', () => {
+  home.style.opacity = 1 - window.scrollY / homeHeight;
+});

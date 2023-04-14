@@ -160,6 +160,10 @@ p {
   text-align: center;
 }
 
+#homeElements {
+  transition: all var(--animation-duration) ease;
+}
+
 .home__avatar {
   width: 200px;
   height: 200px;
