@@ -41,3 +41,18 @@ const homeHeight = home.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
   home.style.opacity = 1 - window.scrollY / homeHeight;
 });
+
+// up arrow btn
+const arrow = document.querySelector('.arrow');
+document.addEventListener('scroll', () => {
+  if (window.scrollY > homeHeight) {
+    arrow.classList.add('upBtn');
+  } else {
+    arrow.classList.remove('upBtn');
+  }
+});
+
+const arrowBtn = document.querySelector('.arrow');
+arrowBtn.addEventListener('click', () => {
+  scrollIntoView('#home');
+});

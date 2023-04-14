@@ -95,6 +95,25 @@ p {
   margin: 4px 0;
 }
 
+/* arrow button */
+.arrow {
+  position: fixed;
+  padding: 0 12px;
+  right: 15px;
+  bottom: 15px;
+  font-size: 35px;
+  background-color: var(--color-dark-white);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all var(--animation-duration) ease;
+  pointer-events: none;
+}
+
+.upBtn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /*Navbar*/
 #navbar {
   position: fixed;
@@ -152,7 +171,6 @@ p {
 }
 
 /* Home */
-
 #home {
   background: url('imgs/home-background3.png') center/cover no-repeat;
   padding: 40px;
