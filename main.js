@@ -20,6 +20,7 @@ navbarMenu.addEventListener('click', (e) => {
 
   if (link == null) return;
 
+  navbarMenu.classList.remove('open');
   scrollIntoView(link);
 });
 
@@ -98,3 +99,17 @@ navbarMenu.addEventListener('click', (e) => {
   activeMenu.classList.remove('selected');
   target.classList.add('selected');
 });
+
+// 토글 버튼
+if (matchMedia('screen and (max-width: 768px)').matches) {
+  const togglebtn = document.querySelector('.navbar__toggle-btn');
+  const navbarMenu = document.querySelector('.navbar__menu');
+
+  togglebtn.addEventListener('click', () => {
+    if (!navbarMenu.classList.contains('open')) {
+      navbarMenu.classList.add('open');
+    } else {
+      navbarMenu.classList.remove('open');
+    }
+  });
+}

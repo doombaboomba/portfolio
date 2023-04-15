@@ -430,19 +430,19 @@ p {
 }
 
 .project__description h3 {
-  color: var(--color-white);
+  color: var(--color-orange);
 }
 
 .project__description h3:after {
   display: block;
-  margin-left: -12px;
   margin-top: 8px;
   position: relative;
   left: 50%;
   content: '';
-  width: 25px;
+  width: 60px;
   height: 2px;
   background-color: var(--color-dark-white);
+  transform: translateX(-50%);
 }
 
 /* Testimonial */
@@ -520,9 +520,11 @@ p {
   .navbar__toggle-btn {
     display: block;
   }
+
   #navbar {
     flex-direction: column;
     align-items: flex-start;
+    background-color: var(--color-orange);
   }
 
   .navbar__menu {
@@ -530,6 +532,10 @@ p {
     text-align: center;
     width: 100%;
     display: none;
+  }
+
+  .navbar__menu.open {
+    display: block;
   }
 
   .about__majors {
