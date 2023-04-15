@@ -65,15 +65,12 @@ projectBtn.addEventListener('click', (e) => {
   const target = e.target;
   const targetBtn = target.dataset.btn;
   const activeMenu = document.querySelector('.category__btn.active');
-  const activeBtn = activeMenu.dataset.btn;
 
   if (targetBtn == null) return;
 
-  if (targetBtn == activeBtn) return;
-  else {
-    activeMenu.classList.remove('active');
-    target.classList.add('active');
-  }
+  // 프로젝트 카테고리가 눌리면 배경색이 더해지도록
+  activeMenu.classList.remove('active');
+  target.classList.add('active');
 
   projectContainer.classList.add('anim-out');
   const projects = document.querySelectorAll('.project');
@@ -88,4 +85,16 @@ projectBtn.addEventListener('click', (e) => {
     });
     projectContainer.classList.remove('anim-out');
   }, 300);
+});
+
+// navbar 선택된 메뉴에 border 처리
+navbarMenu.addEventListener('click', (e) => {
+  const target = e.target;
+  const selectedMenuLink = target.dataset.link;
+  const activeMenu = document.querySelector('.navbar__menu__item.selected');
+
+  if (selectedMenuLink == null) return;
+
+  activeMenu.classList.remove('selected');
+  target.classList.add('selected');
 });
