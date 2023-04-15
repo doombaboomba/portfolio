@@ -57,3 +57,35 @@ const arrowBtn = document.querySelector('.arrow');
 arrowBtn.addEventListener('click', () => {
   scrollIntoView('#home');
 });
+
+// 프로젝트 카테고리에 따라 보이는 프로젝트 필터링
+const projectContainer = document.querySelector('.work__projects');
+const projectBtn = document.querySelector('.work__categories');
+projectBtn.addEventListener('click', (e) => {
+  const target = e.target;
+  const targetBtn = target.dataset.btn;
+  const activeMenu = document.querySelector('.category__btn.active');
+  const activeBtn = activeMenu.dataset.btn;
+
+  if (targetBtn == null) return;
+
+  if (targetBtn == activeBtn) return;
+  else {
+    activeMenu.classList.remove('active');
+    target.classList.add('active');
+  }
+
+  projectContainer.classList.add('anim-out');
+  const projects = document.querySelectorAll('.project');
+  setTimeout(() => {
+    projects.forEach((element) => {
+      const projectType = element.dataset.btn;
+      if (projectType == targetBtn || targetBtn == 'all') {
+        element.classList.remove('invisible');
+      } else {
+        element.classList.add('invisible');
+      }
+    });
+    projectContainer.classList.remove('anim-out');
+  }, 300);
+});
