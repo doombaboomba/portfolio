@@ -113,3 +113,23 @@ if (matchMedia('screen and (max-width: 768px)').matches) {
     }
   });
 }
+
+// navbar
+/*
+const navbarMenuItem = document.querySelectorAll('.navbar__menu__item');
+const activeMenu = document.querySelector('.navbar__menu__item.selected');
+
+console.log(navbarMenuItem.dataset.link);
+document.addEventListener('scroll', () => {
+  if (window.scrollY >= 609 && window.scrollY < 1290) {
+    console.log('About');
+  } else if (window.scrollY >= 1290 && window.scrollY < 2023) {
+    console.log('Skills');
+  } else if (window.scrollY >= 2023 && window.scrollY < 2830) {
+    console.log('Wokrs');
+  } else if (window.scrollY >= 2830 && window.scrollY < 3090) {
+    console.log('Testimonial');
+  } else if (window.scrollY >= 3090) {
+    console.log('contact');
+  }
+});*/
