@@ -30,12 +30,6 @@ contactBtn.addEventListener('click', () => {
   scrollIntoView('#contact');
 });
 
-// 매개변수 위치로 이동(스크롤)하는 함수
-function scrollIntoView(selector) {
-  const scrollTo = document.querySelector(selector);
-  scrollTo.scrollIntoView({ behavior: 'smooth' });
-}
-
 // 스크롤 시 홈화면 메인 프로필, 글씨 투명처리
 const home = document.querySelector('#homeElements');
 const homeHeight = home.getBoundingClientRect().height;
@@ -114,22 +108,65 @@ if (matchMedia('screen and (max-width: 768px)').matches) {
   });
 }
 
-// navbar
-/*
-const navbarMenuItem = document.querySelectorAll('.navbar__menu__item');
-const activeMenu = document.querySelector('.navbar__menu__item.selected');
+const sectionIds = [
+  '#home',
+  '#about',
+  '#skills',
+  '#works',
+  '#testimonials',
+  '#contact',
+];
 
-console.log(navbarMenuItem.dataset.link);
-document.addEventListener('scroll', () => {
-  if (window.scrollY >= 609 && window.scrollY < 1290) {
-    console.log('About');
-  } else if (window.scrollY >= 1290 && window.scrollY < 2023) {
-    console.log('Skills');
-  } else if (window.scrollY >= 2023 && window.scrollY < 2830) {
-    console.log('Wokrs');
-  } else if (window.scrollY >= 2830 && window.scrollY < 3090) {
-    console.log('Testimonial');
-  } else if (window.scrollY >= 3090) {
-    console.log('contact');
+const sections = sectionIds.map((id) => document.querySelector(id));
+const navItems = sectionIds.map((id) =>
+  document.querySelector(`[data-link="${id}"]`)
+);
+
+let selectedNavIndex = 0;
+let selectedNavItem = navItems[0];
+
+function selectNavItem(selected) {
+  selectedNavItem.classList.remove('selected');
+  selectedNavItem = selected;
+  selectedNavItem.classList.add('selected');
+}
+
+// 매개변수 위치로 이동(스크롤)하는 함수
+function scrollIntoView(selector) {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({ behavior: 'smooth' });
+  selectNavItem(navItems[sectionIds.indexOf(selector)]);
+}
+
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.4,
+};
+const observerCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+      const index = sectionIds.indexOf(`#${entry.target.id}`);
+      //스크롤이 아래로 되어서 페이지가 올라옴
+      if (entry.boundingClientRect.y < 0) {
+        selectedNavIndex = index + 1;
+      } else {
+        selectedNavIndex = index - 1;
+      }
+    }
+  });
+};
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach((section) => observer.observe(section));
+
+window.addEventListener('wheel', () => {
+  if (window.scrollY === 0) {
+    selectedNavIndex = 0;
+  } else if (
+    Math.round(window.scrollY + window.innerHeight) >=
+    document.body.clientHeight
+  ) {
+    selectedNavIndex = navItems.length - 1;
   }
-});*/
+  selectNavItem(navItems[selectedNavIndex]);
+});
